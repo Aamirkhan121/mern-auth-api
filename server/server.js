@@ -12,7 +12,7 @@ const adminRoute=require("./router/admin-router.js")
 const router = require("./router/service-router");
 
 const corsOptions={
-    origin:"http://localhost:5173",
+    origin:"https://mern-app-1jrq.onrender.com/",
     methods:"GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
 }
