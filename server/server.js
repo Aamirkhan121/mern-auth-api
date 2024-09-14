@@ -38,6 +38,12 @@ app.use("/api/admin",adminRoute)
 // app.use("/api/admin",adminRoute)
 app.use(errorMiddleware);
 
+app.use(express.static(path.join(__dirname, 'client/build'))); // Assuming your React app is in 'client/build'
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html')); // Serve React index.html
+});
+
 connectedDb().then(()=>{
     app.listen(PORT,()=>{
         console.log(`server is running at port:http://localhost:${PORT}`)
