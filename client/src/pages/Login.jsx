@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../store/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-const URL="http://localhost:8000/api/auth/login"
+const URL="https://mern-auth-api-uve6.onrender.com/api/auth/login"
 
 const Login = () => {
   const[formData,setFormData]=useState({
