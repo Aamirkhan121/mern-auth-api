@@ -11,13 +11,20 @@ const adminRoute=require("./router/admin-router.js")
 // const serviceRoute=require("./router/service-router");
 const router = require("./router/service-router");
 
-const corsOptions={
-    origin:"https://mern-app-1jrq.onrender.com/",
-    methods:"GET, POST, PUT, DELETE, PATCH, HEAD",
-    credentials: true,
-}
+const allowedOrigins = ['https://mern-app-1jrq.onrender.com'];
 
-app.use(cors(corsOptions))
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Allow credentials (e.g., cookies, authorization headers)
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 
