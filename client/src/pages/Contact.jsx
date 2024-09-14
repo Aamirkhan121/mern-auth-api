@@ -35,7 +35,7 @@ const ContactForm = () => {
     e.preventDefault();
     console.log(contact)
     try {
-      const response = await axios.post("http://localhost:8000/api/form/contact", contact);
+      const response = await axios.post("https://mern-auth-api-uve6.onrender.com/api/form/contact", contact);
       // console.log(response.data)
       if (response.status === 200) {
         setContact({
