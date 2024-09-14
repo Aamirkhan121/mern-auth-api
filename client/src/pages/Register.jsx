@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
 import { toast } from 'react-toastify';
 
-const URL='http://localhost:8000/api/auth/register'
+const URL='https://mern-auth-api-uve6.onrender.com/api/auth/register'
 
 const Register = () => {
   const [formData, setFormData] = useState({
