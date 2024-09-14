@@ -10,6 +10,7 @@ const contactRoute = require("./router/contact-router.js");
 const adminRoute=require("./router/admin-router.js")
 // const serviceRoute=require("./router/service-router");
 const router = require("./router/service-router");
+const path = require('path'); // For serving React app
 
 const allowedOrigins = ['https://mern-app-1jrq.onrender.com'];
 
