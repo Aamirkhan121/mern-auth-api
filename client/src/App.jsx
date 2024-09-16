@@ -29,7 +29,7 @@ const App = () => {
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/logout' element={<Logout/>}/>
-        <Route path='/admin' element={<AdminLayout/>}/>
+        <Route path='/admin' element={<AdminLayout/>}>
         <Route path="users/:id/edit" element={<AdminUserUpdated/>}
         <Route path='users' element={<AdminUsers/>}/>
         <Route path='contacts' element={<AdminContacts/>}/>
