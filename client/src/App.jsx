@@ -30,11 +30,11 @@ const App = () => {
         <Route path='/login' element={<Login/>}/>
         <Route path='/logout' element={<Logout/>}/>
         <Route path='/admin' element={<AdminLayout/>}>
-        <Route path="users/:id/edit" element={<AdminUserUpdated/>}
+        <Route path="users/:id/edit" element={<AdminUserUpdated/>}/>
         <Route path='users' element={<AdminUsers/>}/>
         <Route path='contacts' element={<AdminContacts/>}/>
         {/* <Route path="contacts/:id/edit" element={<AdminContactUpdate/>}/> */}
-       </Route>
+        </Route>
 
         <Route path='*' element={<Error/>}/>
       </Routes>
