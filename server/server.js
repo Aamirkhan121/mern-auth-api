@@ -39,6 +39,13 @@ app.use("/api/admin",adminRoute)
 // app.use("/api/admin",adminRoute)
 app.use(errorMiddleware);
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// Handles any requests that don't match the API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
+
 connectedDb().then(()=>{
     app.listen(PORT,()=>{
         console.log(`server is running at port:http://localhost:${PORT}`)
