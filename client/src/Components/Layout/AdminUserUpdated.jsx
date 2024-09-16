@@ -17,7 +17,7 @@ const AdminUserUpdated = () => {
     // Fetch user data based on the ID
     const getSingleData = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/admin/users/${id}`, {
+            const response = await axios.get(`https://mern-auth-api-uve6.onrender.com/api/admin/users/${id}`, {
                 headers: {
                     Authorization: authorizationToken,
                 }
@@ -50,7 +50,7 @@ const AdminUserUpdated = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.patch(`http://localhost:8000/api/admin/users/update/${id}`, data, {
+            const response = await axios.patch(`https://mern-auth-api-uve6.onrender.com/api/admin/users/update/${id}`, data, {
                 headers: {
                     Authorization: authorizationToken,
                     'Content-Type': 'application/json'

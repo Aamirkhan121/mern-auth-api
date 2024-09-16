@@ -30,7 +30,7 @@ const LogoutUser = () => {
 const userAuthentication=async()=>{
     setIsLoading(true)
     try {
-        const response=await axios.get("http://localhost:8000/api/auth/user",{
+        const response=await axios.get("https://mern-auth-api-uve6.onrender.com/api/auth/user",{
             headers:{
                 Authorization:authorizationToken,
             }
@@ -53,7 +53,7 @@ const userAuthentication=async()=>{
 
 const getServiceData=async()=>{
     try {
-        const response=await axios.get("http://localhost:8000/api/data/service");
+        const response=await axios.get("https://mern-auth-api-uve6.onrender.com/api/data/service");
         if (response.status===200) {
             const services=await response.data
             // console.log(services)

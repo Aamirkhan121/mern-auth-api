@@ -12,13 +12,20 @@ const adminRoute=require("./router/admin-router.js")
 const router = require("./router/service-router");
 const path = require('path');
 
-const corsOptions={
-    origin:"http://localhost:5173",
-    methods:"GET, POST, PUT, DELETE, PATCH, HEAD",
-    credentials: true,
-}
+const allowedOrigins = ['https://mern-app-1jrq.onrender.com'];
 
-app.use(cors(corsOptions))
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Allow credentials (e.g., cookies, authorization headers)
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 
@@ -31,13 +38,6 @@ app.use("/api/data",router);
 app.use("/api/admin",adminRoute)
 // app.use("/api/admin",adminRoute)
 app.use(errorMiddleware);
-
-app.use(express.static(path.join(__dirname, 'client/build')));
-
-// Handles any requests that don't match the API routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
-});
 
 connectedDb().then(()=>{
     app.listen(PORT,()=>{
