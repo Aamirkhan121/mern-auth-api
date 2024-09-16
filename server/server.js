@@ -10,6 +10,7 @@ const contactRoute = require("./router/contact-router.js");
 const adminRoute=require("./router/admin-router.js")
 // const serviceRoute=require("./router/service-router");
 const router = require("./router/service-router");
+const path = require('path');
 
 const corsOptions={
     origin:"http://localhost:5173",
@@ -30,6 +31,13 @@ app.use("/api/data",router);
 app.use("/api/admin",adminRoute)
 // app.use("/api/admin",adminRoute)
 app.use(errorMiddleware);
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// Handles any requests that don't match the API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
 connectedDb().then(()=>{
     app.listen(PORT,()=>{
