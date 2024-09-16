@@ -10,7 +10,6 @@ const contactRoute = require("./router/contact-router.js");
 const adminRoute=require("./router/admin-router.js")
 // const serviceRoute=require("./router/service-router");
 const router = require("./router/service-router");
-const path = require('path'); // For serving React app
 
 const allowedOrigins = ['https://mern-app-1jrq.onrender.com'];
 
@@ -39,11 +38,7 @@ app.use("/api/admin",adminRoute)
 // app.use("/api/admin",adminRoute)
 app.use(errorMiddleware);
 
-app.use(express.static(path.join(__dirname, 'client/build'))); // Assuming your React app is in 'client/build'
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html')); // Serve React index.html
-});
 
 connectedDb().then(()=>{
     app.listen(PORT,()=>{
