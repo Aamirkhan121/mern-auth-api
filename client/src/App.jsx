@@ -19,7 +19,7 @@ import AdminUserUpdated from './Components/Layout/AdminUserUpdated';
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename='/'>
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -29,7 +29,7 @@ const App = () => {
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/logout' element={<Logout/>}/>
-        <Route basename='/admin' element={<AdminLayout/>}>
+        <Route path='/admin' element={<AdminLayout/>}>
         <Route path="users/:id/edit" element={<AdminUserUpdated/>}/>
         <Route path='users' element={<AdminUsers/>}/>
         <Route path='contacts' element={<AdminContacts/>}/>
