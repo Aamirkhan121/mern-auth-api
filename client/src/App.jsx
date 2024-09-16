@@ -19,7 +19,7 @@ import AdminUserUpdated from './Components/Layout/AdminUserUpdated';
 const App = () => {
   return (
     <div>
-      <BrowserRouter basename='/'>
+      <BrowserRouter>
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
