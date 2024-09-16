@@ -16,7 +16,7 @@ const AdminLayout = () => {
 </div>
         )
     }
-    if (!user.isAdmin) {
+    if (!user ||user.isAdmin) {
         return <Navigate to={'/'}/>
     }
   return (
